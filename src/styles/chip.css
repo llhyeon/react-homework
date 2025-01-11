@@ -1,7 +1,10 @@
 #chip {
+  margin-block: 1rem;
   width: 90px;
   height: 44px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  cursor: pointer;
 
   border-radius: 1000px;
   color: dodgerblue;
@@ -9,4 +12,9 @@
   justify-content: center;
   align-items: center;
   font-size: 1.25rem;
+
+  &.is--active {
+    background: dodgerblue;
+    color: white;
+  }
 }

@@ -5,7 +5,6 @@
   border-radius: 1000px;
   position: relative;
   overflow: hidden;
-  transition: background-color 0.3s;
 
   #switch {
     position: absolute;
@@ -31,7 +30,6 @@
     display: block;
     cursor: pointer;
     position: relative;
-    transition: 0.2s;
     background: #ddd;
 
     &:hover {
