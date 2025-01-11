@@ -1,0 +1,12 @@
+#chip {
+  width: 90px;
+  height: 44px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  border-radius: 1000px;
+  color: dodgerblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+}

@@ -1,0 +1,54 @@
+.input-wrapper {
+  width: 90px;
+  height: 44px;
+  border: none;
+  border-radius: 1000px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s;
+
+  #switch {
+    position: absolute;
+    display: none;
+  }
+
+  #switch:checked + label > .btn {
+    left: 50px;
+    background-color: #fff;
+  }
+
+  #switch:checked + label {
+    background-color: dodgerblue;
+
+    &:hover {
+      background-color: rgb(152, 200, 248);
+    }
+  }
+
+  label {
+    inline-size: 100%;
+    block-size: 100%;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+    background: #ddd;
+
+    &:hover {
+      background-color: #d5ddfa;
+    }
+  }
+
+  .btn {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    display: block;
+    height: 80%;
+    aspect-ratio: 1/1;
+    background-color: dodgerblue;
+    border-radius: 50%;
+    transition: all 0.2s;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "live-server --host=localhost --port=5000"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
