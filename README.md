@@ -2,4 +2,4 @@
 
 | 주차  |                   내용 및 과제 링크                    |
 | :---: | :----------------------------------------------------: |
-| 1주차 | [Button, Chip 컴포넌트 개발](./src/homework-component) |
+| 1주차 | [Button, Chip 컴포넌트 개발](./src/homework-component.md) |
