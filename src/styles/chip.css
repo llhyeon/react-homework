@@ -1,17 +1,16 @@
 #chip {
   margin-block: 1rem;
-  width: 90px;
+  min-width: 90px;
   height: 44px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: transparent;
   cursor: pointer;
-
+  display: inline-block;
   border-radius: 1000px;
   color: dodgerblue;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 1.25rem;
+  text-align: center;
+  align-content: center;
 
   &.is--active {
     background: dodgerblue;

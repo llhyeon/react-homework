@@ -1,52 +1,59 @@
-.input-wrapper {
-  width: 90px;
-  height: 44px;
-  border: none;
+#switch {
+  display: none;
+
+  &:checked + label::before {
+    left: 31px;
+    background: #fff;
+  }
+
+  &:checked + label::after {
+    content: "ON";
+  }
+
+  &:checked + label {
+    background: dodgerblue;
+    transition: all 0.3s;
+
+    &:hover {
+      background: rgb(20, 113, 206);
+    }
+  }
+}
+
+label {
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  width: 60px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 1000px;
   position: relative;
-  overflow: hidden;
+  transition: all 0.3s;
 
-  #switch {
-    position: absolute;
-    display: none;
-  }
-
-  #switch:checked + label > .btn {
-    left: 50px;
-    background-color: #fff;
-  }
-
-  #switch:checked + label {
-    background-color: dodgerblue;
-
-    &:hover {
-      background-color: rgb(152, 200, 248);
-    }
-  }
-
-  label {
-    inline-size: 100%;
-    block-size: 100%;
-    display: block;
-    cursor: pointer;
-    position: relative;
+  &:hover {
     background: #ddd;
-
-    &:hover {
-      background-color: #d5ddfa;
-    }
   }
 
-  .btn {
+  &::before {
     position: absolute;
     top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
+    translate: 0 -50%;
+    left: 3px;
+    content: "";
     display: block;
-    height: 80%;
-    aspect-ratio: 1/1;
-    background-color: dodgerblue;
+    width: 26px;
+    height: 26px;
+    background-color: rgb(174, 194, 215);
     border-radius: 50%;
-    transition: all 0.2s;
+    transition: 0.3s;
+  }
+
+  &::after {
+    position: absolute;
+    content: "OFF";
+    font-weight: 700;
+    top: 50%;
+    translate: 0 -50%;
+    right: -34px;
   }
 }
