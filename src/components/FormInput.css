@@ -1,19 +1,41 @@
 @layer component {
   .form-input {
-    max-width: 298px;
+    max-width: 284px;
     display: flex;
     flex-flow: column;
 
     label {
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       gap: 0.5rem;
     }
 
-    input {
-      border: none;
-      border-bottom: 1px solid #ddd;
-      padding-block: 0.5rem;
+    div {
+      display: flex;
+      align-items: center;
+
+      input {
+        width: 100%;
+        border: none;
+        padding-block: 0.5rem;
+
+        &::placeholder {
+          color: #62636c;
+          font-size: 0.875rem;
+        }
+      }
+
+      button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
     }
+  }
+
+  hr {
+    border: none;
+    background-color: #d9d9de;
+    height: 1px;
   }
 }
