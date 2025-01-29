@@ -4,9 +4,10 @@
 
 ## 목차
 
-[FormInput 컴포넌트](#forminput-컴포넌트-개발)  
-[Button 컴포넌트](#button-컴포넌트-개발)
-[Register Form 컴포넌트]()
+1. [FormInput 컴포넌트](#forminput-컴포넌트-개발)
+2. [Button 컴포넌트](#button-컴포넌트-개발)
+3. [Register Form 컴포넌트](#register-form-컴포넌트-개발)
+4. [과제를 통해 알게된 사실](#과제를-통해-알게된-사실)
 
 ---
 
@@ -90,26 +91,72 @@
    </button>
    ```
 
-### Register Form 컴포넌트 개발
+### Form 컴포넌트 개발
 
-1. 위에 만든 `FormInput 컴포넌트`와 `Button 컴포넌트`를 조합하여 `Register Form 컴포넌트`를 설계하였음
+1. 위에 만든 `FormInput 컴포넌트`와 `Button 컴포넌트`를 조합하여 `Register Form 컴포넌트`와 `Login Form`를 설계하였음
 
    ```tsx
+   // Register Form
    import Button from "@/components/Button";
    import FormInput from "@/components/FormInput";
    import "@/components/RegisterForm.css";
 
    export default function RegisterForm() {
+     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+       e.preventDefault();
+     }
      return (
-       <div className="register">
-         <FormInput label="이름" placeholder="2글자 이상 입력" />
-         <FormInput label="이메일" placeholder="user@company.id" />
-         <FormInput label="패스워드" placeholder="숫자, 영문 조합 6자리 이상 입력" buttonOn />
-         <FormInput label="패스워드 확인" placeholder="입력한 패스워드 다시 입력" buttonOn />
-         <Button>회원가입</Button>
-       </div>
+       <form className="register" onSubmit={handleSubmit}>
+         <FormInput label="이름" type="text" placeholder="2글자 이상 입력" />
+         <FormInput label="이메일" type="email" placeholder="user@company.id" />
+         <FormInput
+           label="패스워드"
+           type="password"
+           placeholder="숫자, 영문 조합 6자리 이상 입력"
+           buttonOn
+         />
+         <FormInput
+           label="패스워드 확인"
+           type="password"
+           placeholder="입력한 패스워드 다시 입력"
+           buttonOn
+         />
+         <Button type="submit">회원가입</Button>
+       </form>
+     );
+   }
+   ```
+
+   ```tsx
+   // Login Form 컴포넌트
+   import FormInput from "@/components/FormInput";
+   import Button from "./Button";
+   import "@/components/LoginForm.css";
+
+   export default function LoginForm() {
+     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+       e.preventDefault();
+     }
+
+     return (
+       <form className="login" onSubmit={handleSubmit}>
+         <FormInput label="이메일" type="email" placeholder="user@company.id" />
+         <FormInput
+           label="패스워드"
+           type="password"
+           placeholder="숫자, 영문 조합 6자리 이상 입력"
+           buttonOn
+         />
+         <Button type="submit">로그인</Button>
+       </form>
      );
    }
    ```
 
 2. 내부의 컴포넌트의 크기는 반응형으로 설계하였고 전체를 감싸고 있는 `register` 클래스 요소에 크기 부여를 하여 화면 크기에 따라 크기가 변하도록 설계하였음
+
+3. form 요소이기에 기본 동작을 제한하는 함수를 만들어 `onSubmit` 이벤트에 할당하였음.
+
+### 과제를 통해 알게된 사실
+
+1. React 19버전 부터 사용할 수 있는 form요소의 `action`속성을 통해 `submit`이벤트 핸들러를 컨트롤 할 수 있지만 `action`속성에 할당되는 이벤트는 `반드시 비동기 함수여야만 한다.`
