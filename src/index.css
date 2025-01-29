@@ -2,3 +2,7 @@
 
 @import "./styles/utils/a11y.css" layer(utils);
 @import "./styles/base/reset.css" layer(base);
+
+body {
+  background-color: #ddd;
+}

@@ -1,0 +1,20 @@
+.register {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 1rem;
+  padding: 1.5rem;
+  position: relative;
+  min-width: 330px;
+  position: relative;
+  padding-block-end: 60px;
+
+  .btn {
+    position: absolute;
+    width: calc(100% - 48px);
+    inset-block-end: -26px;
+  }
+}
