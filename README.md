@@ -1,50 +1,69 @@
-# React + TypeScript + Vite
+# 3주차 과제 Login & Register Form 만들기
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 목차
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[FormInput 컴포넌트](#forminput-컴포넌트-개발)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### FormInput 컴포넌트 개발
 
-- Configure the top-level `parserOptions` property like this:
+1. `label, buttonOn, ...restProps`를 `props`로 받는 `FormInput` 컴포넌트 개발
+2. `useId` 훅을 사용하여 `label과 input 연결`
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   ```tsx
+   import { useId } from "react";
+   const id = useId();
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+3. `props`로 받는 type값이 `checkbox`나 `radio`일 경우 반환값 없이 함수가 종료되도록 설계 -> `checkbox, radio 컴포넌트`는 별도의 컴포넌트로 설계하여 관리 예정
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   ```tsx
+   if (restProps.type === "checkbox" || restProps.type === "radio") {
+     return;
+   }
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+4. `ComponentProps`를 확장하여 컴포넌트 props 타입 설계
+
+   ```tsx
+   import { ComponentProps, useId, useState } from "react";
+
+   type FormInputProps = ComponentProps<"input"> & {
+     label: string;
+     buttonOn?: boolean;
+   };
+   ```
+
+5. `useState` 리액트 훅을 사용하여 `input 컴포넌트` value의 상태관리 진행
+
+   ```tsx
+   const [inputValue, setInputValue] = useState<string>("");
+
+   function handleChangeInput(e: React.ChangeEvent<HTMLInputElement>) {
+     setInputValue(e.target.value);
+   }
+   ```
+
+6. `buttonOn` props를 받아서 있을 경우 `보이기 버튼`이 렌더링 되도록 설계
+
+   ```tsx
+   // App.tsx
+   <FormInput
+     label="비밀번호"
+     type="password"
+     placeholder="숫자, 영문 조합 6자리 이상 입력"
+     buttonOn
+   />;
+
+   // FormInput.tsx
+   {
+     buttonOn && (
+       <button type="button">
+         <img src="/icon/hidden.svg" alt="보이기 및 숨기기" width={20} height={20} />
+       </button>
+     );
+   }
+   ```
