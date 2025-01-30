@@ -1,0 +1,33 @@
+@layer component {
+  .input {
+    margin-block: 8px;
+    display: flex;
+    height: 50px;
+    align-items: center;
+    border: 1px solid #ddd;
+
+    input {
+      min-width: 220px;
+      height: 100%;
+      border: none;
+      padding: 0.8rem;
+      outline: none;
+
+      &:focus {
+        background-color: #f7f7f7;
+      }
+    }
+
+    .input__show-btn {
+      position: absolute;
+      cursor: pointer;
+      height: 48px;
+      width: 48px;
+      border: none;
+      background-image: url("/coopang/show.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      left: 220px;
+    }
+  }
+}
