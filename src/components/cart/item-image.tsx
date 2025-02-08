@@ -6,7 +6,7 @@ type ItemImage = {
 function ItemImage({ productNumber, label }: ItemImage) {
   return (
     <figure>
-      <img src={`/cart/ProductImage-${productNumber}.webp`} alt="" />
+      <img src={`/cart/ProductImage-${productNumber}.webp`} alt="" width={110} height={110} />
       <figcaption className="sr-only">{label}</figcaption>
     </figure>
   );
