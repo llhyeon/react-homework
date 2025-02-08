@@ -8,16 +8,6 @@ type CountButtonProps = {
 };
 
 function CountButton({ id, count, onCountUp, onCountDown }: CountButtonProps) {
-  // const handleIncrease = () => {
-  //   setCount((prev) => prev + 1);
-  // };
-
-  // const handleDecrease = () => {
-  //   // count가 1 이하로 떨어지지 않도록
-  //   if (count === 1) return;
-  //   setCount((prev) => prev - 1);
-  // };
-
   const handleIncrease = (id: number) => {
     onCountUp(id);
   };
