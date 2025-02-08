@@ -5,7 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig(() => {
   return {
-    base: "/react-homework/",
     plugins: [
       react({
         jsxRuntime: "automatic",
