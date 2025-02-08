@@ -12,18 +12,21 @@ function CartList() {
       title: "1A 우유 900mL",
       price: 1880,
       count: 1,
+      remain: 5,
     },
     {
       id: 2,
       title: "맛있는 콩나물 500g",
       price: 1280,
       count: 1,
+      remain: 8,
     },
     {
       id: 3,
       title: "고소한 두부 1kg",
       price: 2280,
       count: 1,
+      remain: 3,
     },
   ]);
 
@@ -55,11 +58,11 @@ function CartList() {
     <>
       <ul className={tm("border-y")}>
         {items.map((item: CartItemType) => {
-          const totalPrice = item.count * item.price;
           return (
             <li key={item.id} className={tm("flex items-center")}>
-              <CartItem id={item.id} title={item.title} price={totalPrice} />
+              <CartItem id={item.id} title={item.title} price={item.price} remain={item.remain} />
               <CountButton
+                remain={item.remain}
                 count={item.count}
                 onCountDown={handleDec}
                 onCountUp={handleInc}

@@ -3,12 +3,14 @@ import tm from "@/utils/tw-merge";
 type CountButtonProps = {
   id: number;
   count: number;
+  remain: number;
   onCountUp: (id: number) => void;
   onCountDown: (id: number) => void;
 };
 
-function CountButton({ id, count, onCountUp, onCountDown }: CountButtonProps) {
+function CountButton({ id, count, remain, onCountUp, onCountDown }: CountButtonProps) {
   const handleIncrease = (id: number) => {
+    if (count >= remain) return;
     onCountUp(id);
   };
 
@@ -16,6 +18,9 @@ function CountButton({ id, count, onCountUp, onCountDown }: CountButtonProps) {
     if (count === 1) return;
     onCountDown(id);
   };
+
+  const isExceed = count === remain;
+  const notAllowClass = "cursor-not-allowed";
 
   return (
     <div
@@ -25,8 +30,10 @@ function CountButton({ id, count, onCountUp, onCountDown }: CountButtonProps) {
       <button className={tm("cursor-pointer  text-gray-300")} onClick={() => handleDecrease(id)}>
         -
       </button>
-      <span className={tm(" text-center text-gray-700")}>{count}</span>
-      <button className={tm("cursor-pointer  text-gray-300")} onClick={() => handleIncrease(id)}>
+      <span className={tm("text-center text-gray-700")}>{count}</span>
+      <button
+        className={tm(`cursor-pointer  text-gray-300 ${isExceed && notAllowClass}`)}
+        onClick={() => handleIncrease(id)}>
         +
       </button>
     </div>
