@@ -1,4 +1,4 @@
-@layer base, component, utils;
+/* @layer base, component, utils;
 
 @import "./styles/utils/a11y.css" layer(utils);
 @import "./styles/base/reset.css" layer(base);
@@ -9,4 +9,12 @@ body {
   h2 {
     text-align: center;
   }
-}
+} */
+
+/* @layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities); */
+
+@import "./styles/tailwind.css";
