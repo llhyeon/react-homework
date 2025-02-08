@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import FormInput from "@/components/FormInput";
 import "@/components/RegisterForm.css";
+import TailwindButton from "./TailwindButton";
 
 export default function RegisterForm() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -23,6 +24,7 @@ export default function RegisterForm() {
         buttonOn
       />
       <Button type="submit">회원가입</Button>
+      <TailwindButton>버튼</TailwindButton>
     </form>
   );
 }

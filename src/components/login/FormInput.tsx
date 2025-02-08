@@ -1,5 +1,5 @@
 import { ComponentProps, useId, useState } from "react";
-import "./FormInput.css";
+// import "./FormInput.css";
 
 type FormInputProps = ComponentProps<"input"> & {
   label: string;
@@ -20,8 +20,10 @@ export default function FormInput({ label, buttonOn, ...restProps }: FormInputPr
   }
 
   return (
-    <div className="form-input">
-      <label htmlFor={id}>{label}</label>
+    <div className="w-full">
+      <label htmlFor={id} className="font-semibold text-base">
+        {label}
+      </label>
       <div>
         <input id={id} value={inputValue} onChange={handleChangeInput} {...restProps} />
         {buttonOn && (
